@@ -32,11 +32,11 @@ bundle install
 ブログ作成、
 
 ```bash
-bundle exec jekyll new ../techno
+bundle exec jekyll new ../blog
 ```
 
 このあとは、 `jekyll_base` を消しても良い。
-今後は、上で作った `techno` のディレクトリ以下のみを使う。
+今後は、上で作った `blog` のディレクトリ以下のみを使う。
 
 # ブログ環境の構築
 
@@ -95,7 +95,7 @@ gem "http_parser.rb", "~> 0.6.0", :platforms => [:jruby]
 gems のインストール
 
 ```bash
-cd ../techno
+cd ../blog
 
 bundle config path vendor
 bundle install
