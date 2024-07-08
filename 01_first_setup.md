@@ -44,9 +44,7 @@ bundle exec jekyll new ../blog
 
 `Gemfile` を以下のように変更する。
 
-- `jekyll` のコメントアウト
 - `minima` のコメントアウト
-- `github-pages` のコメントアウトを解除
 - `webrick` を追加
 - `beautiful-jekyll-theme` を追加
 
@@ -62,12 +60,12 @@ source "https://rubygems.org"
 #
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
-# gem "jekyll", "~> 4.3.3"
+gem "jekyll", "~> 4.3.3"
 # This is the default theme for new Jekyll sites. You may change this to anything you like.
 # gem "minima", "~> 2.5"
 # If you want to use GitHub Pages, remove the "gem "jekyll"" above and
 # uncomment the line below. To upgrade, run `bundle update github-pages`.
-gem "github-pages", group: :jekyll_plugins
+# gem "github-pages", group: :jekyll_plugins
 gem 'webrick'
 # If you have any plugins, put them here!
 group :jekyll_plugins do
@@ -101,11 +99,63 @@ bundle config path vendor
 bundle install
 ```
 
+## change \_config.yml
+
+`theme: minima` の部分を `theme: beautiful-jekyll-theme` へ変更。
+他の項目も、適宜変更する。
+
 ## github page 用 CI のセットアップ
 
 `jekyll.yml` を `.github/workflows` ディレクトリへコピーする。
 
 ```bash
 mkdir -p .github/workflows
-cp ../jekyll_setup/jekyll.yml .github/workflows
+cp ../jekyll_setup/jekyll.yml .github/workflows/
+```
+
+## .gitignore のコピー
+
+.gitignore をコピーする
+
+```bash
+cp ../jekyll_setup/.gitignore ./
+```
+
+## commmit to git
+
+git へ commmit
+
+```bash
+git init
+git add .
+git commit
+```
+
+## github repository setup
+
+public の github リポジトリを新規で作成する。
+
+push する
+
+```bash
+git remote add origin xxx
+git push
+```
+
+## set up page
+
+Settings の Pages を開き
+
+Source のところで、 `GitHub Actions` を選択する。
+
+# how to write post
+
+Please check [official page](https://jekyllrb.com/docs/posts/).
+
+# check locally
+
+You can start the test server on your local as the below command.
+
+```bash
+bundle exec jekyll server
 ```
